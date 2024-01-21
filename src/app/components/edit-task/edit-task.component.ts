@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Task, Status } from 'src/app/models/Task.model';
+import { Task, Status } from '../../models/Task.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ProviderService } from 'src/app/services/provider.service';
+import { ProviderService } from '../../services/provider.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -51,7 +51,6 @@ export class EditTaskComponent implements OnInit{
           this.taskEditForm.controls['status'].patchValue(task.status);
         }
         this.controls = this.taskEditForm.controls;
-        console.log(this.controls['id'].value, 'patchValue');
       },
       error: (error: any) => {
         console.log(error);
@@ -69,7 +68,6 @@ export class EditTaskComponent implements OnInit{
     this.controls = form.controls;
     this.providerService.put(form.value).subscribe({
       next: (task: any) => {
-        console.log(task, 'edited task');
         this.router.navigate(['Home']);
       },
       error: (error: any) => {

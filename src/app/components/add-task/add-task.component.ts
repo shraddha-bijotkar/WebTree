@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProviderService } from 'src/app/services/provider.service';
-import { Task, Status } from 'src/app/models/Task.model';
+import { ProviderService } from '../../services/provider.service';
+import { Task, Status } from '../../models/Task.model';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as uuid from 'uuid';
@@ -36,10 +36,7 @@ export class AddTaskComponent implements OnInit{
     return this.taskForm.controls;
   }  
 
-  addTask(form: FormGroup) {
-    console.log(form.value);
-    //if(this.taskForm.invalid) return;
-    
+  addTask(form: any) {
     this.isSubmitted = true;
     console.log(this.f['dueDate'], 'errors');
 
@@ -47,7 +44,6 @@ export class AddTaskComponent implements OnInit{
     if (form.invalid) {
       return;
     }
-    //this.controls = form.controls;
     this.providerService.post(form.value).subscribe({
       next: (task: Task) => {
         console.log(task);
