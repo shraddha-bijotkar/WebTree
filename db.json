@@ -1,0 +1,39 @@
+{
+  "tasks": [
+    {
+      "id": "1987cef5-035e-4613-8fa7-02a48801533b",
+      "title": "task",
+      "description": "Create a child component from scratch.",
+      "dueDate": "2024-01-27",
+      "status": "InComplete"
+    },
+    {
+      "id": "172d3d8b-bdf6-42c3-a788-13735d7b3426",
+      "title": "Create service.",
+      "description": "Develop a payment service.",
+      "dueDate": "2024-01-27",
+      "status": "InComplete"
+    },
+    {
+      "id": "3ecf48a1-cafa-4990-8b3c-a611f5bde7e3",
+      "title": "Create dashboard.",
+      "description": "Create dashboard and admin panel.",
+      "dueDate": "2024-01-28",
+      "status": "InComplete"
+    },
+    {
+      "id": "7c8dc65a-9e6f-4461-bbdf-b11422bf39ea",
+      "title": "Add unit test cases.",
+      "description": "Increase coverage for demo component.",
+      "dueDate": "2024-01-13",
+      "status": "Completed"
+    },
+    {
+      "id": "879684e8-0aa4-47dd-8781-3087d423ba61",
+      "title": "Create UI for modal.",
+      "description": "Create a child component from scratch.",
+      "dueDate": "2024-01-19",
+      "status": "Completed"
+    }
+  ]
+}
