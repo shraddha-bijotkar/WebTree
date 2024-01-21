@@ -19,7 +19,7 @@ export class ProviderService {
     return this.http.get(url, {headers});
   }
 
-  getById(taskId: Number): Observable<any> {
+  getById(taskId: string): Observable<any> {
     return this.http.get(url + '/' + taskId, {headers});
   }
 
@@ -28,10 +28,10 @@ export class ProviderService {
   }
 
   put(task: Task): Observable<any> {
-    return this.http.put(url, task, {headers});
+    return this.http.put(url + '/' + task.id, task, {headers});
   }
 
-  delete(taskId: Number): Observable<any> {
+  delete(taskId: string): Observable<any> {
     return this.http.delete(url + '/' + taskId, {headers});
   }
 
