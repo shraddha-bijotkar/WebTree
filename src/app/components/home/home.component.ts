@@ -30,13 +30,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  deleteTask(taskId: Number) {
+  deleteTask(taskId: string) {
+    console.log(taskId, 'Inside delete');
     this.providerService.delete(taskId).subscribe({
       next: (task: any) => {
-        console.log(task);
-        this.deletedTask = task;
-        window.alert('Task : ' + `${task.title}` + ' has been deleted successfully!');
-        window.location.reload();
+        this.getAllTasks();        
       },
       error: (error: any) => {
         console.log(error);

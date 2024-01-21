@@ -3,12 +3,12 @@
       <div class="table-wrapper">
         <div class="table-title mb-3 mt-5">
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-10">
               <h4><b>Task Manager</b></h4>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-2">
               <button class="btn btn-success" (click)="addTask()">
-                <i class='fas fa-plus-circle'></i><span> Create New Task</span>
+                <i class='fa fa-plus'></i><span> Create New Task</span>
               </button>
             </div>
           </div>
@@ -21,6 +21,7 @@
               <th>Description</th>
               <th>Due Date</th>
               <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -29,11 +30,11 @@
               <td>{{ task.title }}</td>
               <td>{{ task.description }}</td>
               <td>{{ task.dueDate }}</td>
-              <td>{{ task.status }}</td>
+              <td><span [ngClass]="task.status == 'Completed' ? 'badge rounded-pill bg-success' : 'badge rounded-pill bg-primary'">{{ task.status }}</span></td>
               <td>
-                <a href="#" [routerLink]="['/ViewTask/', task.id]" class="btn"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                <a href="#" [routerLink]="['/EditTask/', task.id]" class="btn"><i class="fa fa-edit edit"></i></a>
-                <button type="button" (click)="deleteTask(task.id)" class="btn"><i class='fa fa-trash delete'></i></button>
+                <a href="#" [routerLink]="['/ViewTask/', task.id]" class="btn"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+                <a href="#" [routerLink]="['/EditTask/', task.id]" class="btn"><i class="fa fa-edit edit fa-2x"></i></a>
+                <button type="button" (click)="deleteTask(task.id)" class="btn"><i class='fa fa-trash delete fa-2x'></i></button>
               </td>
             </tr>
             <tr>
