@@ -1,0 +1,87 @@
+<div class="container-xl">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-6">
+              <h4><b>New Task</b></h4>
+            </div>
+            <div class="col-sm-6">
+              <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fa fa-arrow-circle-left'></i>
+                 Back</a>
+            </div>
+          </div>
+        </div>
+        <form [formGroup]="taskForm" (ngSubmit)="addTask(taskForm)">
+          <div class="table-content">
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label for="title" class="p-t-b-10">Title<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" formControlName="title" id="title" required
+                   name="title">
+                <div *ngIf="f['title'].errors && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!f['title'].errors?.['required']">
+                    Title is required!
+                  </div>
+                  <div [hidden]="!f['title'].errors?.['minlength']">
+                   Title is too short.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label class="p-t-b-10">Description<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" formControlName="description" id="description" required
+                  name="description">
+                <div *ngIf="f['description'].errors && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!f['description']?.errors?.['required']">
+                    Description is required!
+                  </div>
+                  <div [hidden]="!f['description']?.errors?.['minlength']">
+                    Description is invalid!
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label class="p-t-b-10">Due Date<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input type="date" class="form-control" formControlName="dueDate" id="dueDate" name="dueDate">
+                <div *ngIf="(f['dueDate'].errors || f['dueDate'].pristine) && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!(f['dueDate']?.errors?.['required'] || f['dueDate'].pristine)">
+                    Due Date is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label class="p-t-b-10">Status<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                  <select class="form-select form-select-lg mb-3" formControlName="status" aria-label=".form-select-lg example" id="status" required name="status">
+                    <option selected value="{{completed}}">Completed</option>
+                    <option value="{{inComplete}}">Incomplete</option>
+                  </select>
+                  <div *ngIf="(f['status'].errors || f['status'].value === 'Select Status')  && isSubmitted" class="alert alert-danger validationError">
+                    <div [hidden]="!(f['status']?.errors?.['required'] || f['status'].value === 'Select Status')">
+                     Please select valid status.
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="table-footer">
+            <button class="btn btn-success">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
