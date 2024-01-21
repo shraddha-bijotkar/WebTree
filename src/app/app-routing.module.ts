@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'ViewTask/:taskId', component: ViewTaskComponent },
   { path: 'AddTask', component: AddTaskComponent },
-  { path: 'EditTask/:TaskId', component: EditTaskComponent } 
+  { path: 'EditTask/:taskId', component: EditTaskComponent } 
 ];
 
 @NgModule({
